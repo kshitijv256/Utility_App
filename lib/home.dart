@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:utility/about.dart';
 import 'package:utility/mess.dart';
 import 'package:utility/schedule.dart';
+import 'package:utility/todoPage.dart';
+import 'package:utility/data.dart';
 
 const iconColor = Color.fromARGB(255, 122, 122, 122);
 const iconBack = Colors.white54;
@@ -13,105 +16,134 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int pageIndex = 0;
+
+  final pages = [
+    const Schedule(),
+    const Mess(),
+    const TodoPage(),
+    const AboutPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: pages[pageIndex],
+      bottomNavigationBar: buildMyNavBar(context),
+    );
+  }
+
+  Container buildMyNavBar(BuildContext context) {
+    return Container(
+      height: 90,
+      width: MediaQuery.of(context).size.width,
+      color: Colors.transparent,
+      child: Stack(
+        alignment: Alignment.bottomCenter,
         children: [
-          Stack(
-            alignment: Alignment.bottomCenter,
+          Container(
+            // navigation bar buttons
+            height: 90,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+              color: colorScheme[pageIndex]![2],
+              boxShadow: [
+                BoxShadow(
+                  color: colorScheme[pageIndex]![3],
+                  blurRadius: 50,
+                  spreadRadius: -12,
+                ),
+              ],
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.pink,
-                child: Schedule(),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                ),
-                child: Container(
-                  height: 150,
-                  width: MediaQuery.of(context).size.width,
-                  child: Column(children: [
-                    Container(
-                      // navigation bar buttons
-                      height: 100,
-                      width: MediaQuery.of(context).size.width,
-                      color: Colors.transparent,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: iconBack,
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.table_chart,
-                                color: iconColor,
-                              ),
-                              onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return Schedule();
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: iconBack,
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.local_pizza,
-                                color: iconColor,
-                              ),
-                              onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return Mess();
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: iconBack,
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.timer,
-                                color: iconColor,
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: iconBack,
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.person,
-                                color: iconColor,
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ],
+                margin: const EdgeInsets.only(left: 10, right: 10),
+                // navigation bar buttons
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: iconBack,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.table_chart,
+                          color: iconColor,
+                        ),
+                        onPressed: () {
+                          setState(
+                            () {
+                              pageIndex = 0;
+                            },
+                          );
+                        },
                       ),
                     ),
-                    Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width,
-                        color: Colors.transparent),
-                  ]),
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: iconBack,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.local_pizza,
+                          color: iconColor,
+                        ),
+                        onPressed: () {
+                          setState(
+                            () {
+                              pageIndex = 1;
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: iconBack,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.timer,
+                          color: iconColor,
+                        ),
+                        onPressed: () {
+                          setState(
+                            () {
+                              pageIndex = 2;
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: iconBack,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.person,
+                          color: iconColor,
+                        ),
+                        onPressed: () {
+                          setState(
+                            () {
+                              pageIndex = 3;
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              Container(
+                  height: 20,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.transparent),
             ],
           ),
         ],

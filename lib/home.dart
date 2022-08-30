@@ -5,8 +5,8 @@ import 'package:utility/schedule.dart';
 import 'package:utility/todoPage.dart';
 import 'package:utility/data.dart';
 
-const iconColor = Color.fromARGB(255, 122, 122, 122);
-const iconBack = Colors.white54;
+const iconColor = Color.fromARGB(255, 230, 230, 230);
+var iconBack = Colors.white.withOpacity(0.2);
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
             height: 90,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
               ),
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                       radius: 30,
                       backgroundColor: iconBack,
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.table_chart,
                           color: iconColor,
                         ),
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
                       radius: 30,
                       backgroundColor: iconBack,
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.local_pizza,
                           color: iconColor,
                         ),
@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
                       radius: 30,
                       backgroundColor: iconBack,
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.timer,
                           color: iconColor,
                         ),
@@ -124,8 +124,8 @@ class _HomeState extends State<Home> {
                       radius: 30,
                       backgroundColor: iconBack,
                       child: IconButton(
-                        icon: Icon(
-                          Icons.person,
+                        icon: const Icon(
+                          Icons.alternate_email,
                           color: iconColor,
                         ),
                         onPressed: () {

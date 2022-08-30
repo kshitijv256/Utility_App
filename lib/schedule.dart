@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:utility/data.dart';
 
-var day = DateTime.now().weekday;
-
 class Schedule extends StatelessWidget {
   const Schedule({Key? key}) : super(key: key);
 
+  static const pageid = 0;
+
   @override
   Widget build(BuildContext context) {
+    var day = DateTime.now().weekday;
+    var time = DateTime.now().hour;
+    (time > 16) ? day += 1 : day;
+    (day > 5) ? day = 1 : day;
     return Container(
-      color: Colors.transparent,
+      // color: Colors.transparent,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            colorScheme[pageid]![0].withOpacity(0.6),
+            Colors.white,
+            Colors.white,
+          ],
+        ),
+        // image: DecorationImage(
+        //   // opacity: 0.5,
+        //   image: AssetImage('assets/images/purple4.jpg'),
+        //   fit: BoxFit.cover,
+        // ),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,13 +47,13 @@ class Schedule extends StatelessWidget {
                 height: 200,
                 width: 200,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(200),
                     ),
-                    color: colorScheme[0]![2],
+                    color: colorScheme[pageid]![2],
                     boxShadow: [
                       BoxShadow(
-                        color: colorScheme[0]![3],
+                        color: colorScheme[pageid]![3],
                         blurRadius: 50,
                         spreadRadius: -12,
                       ),
@@ -43,13 +63,13 @@ class Schedule extends StatelessWidget {
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomRight: Radius.circular(150),
                   ),
-                  color: colorScheme[0]![1],
+                  color: colorScheme[pageid]![1],
                   boxShadow: [
                     BoxShadow(
-                      color: colorScheme[0]![3],
+                      color: colorScheme[pageid]![3],
                       blurRadius: 50,
                       spreadRadius: -12,
                     ),
@@ -60,13 +80,13 @@ class Schedule extends StatelessWidget {
                 height: 100,
                 width: 100,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(100),
                     ),
-                    color: colorScheme[0]![0],
+                    color: colorScheme[pageid]![0],
                     boxShadow: [
                       BoxShadow(
-                        color: colorScheme[0]![3],
+                        color: colorScheme[pageid]![3],
                         blurRadius: 50,
                         spreadRadius: -12,
                       ),
@@ -82,7 +102,7 @@ class Schedule extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 42,
                     fontWeight: FontWeight.bold,
-                    color: colorScheme[0]![1],
+                    color: colorScheme[pageid]![1],
                   ),
                 ),
               ),
@@ -92,7 +112,6 @@ class Schedule extends StatelessWidget {
             child: ListView.builder(
               itemCount: 6,
               itemBuilder: (BuildContext context, int index) {
-                (day > 5) ? day = 1 : day;
                 return Padding(
                   padding: EdgeInsets.only(
                     top: 30,
@@ -106,9 +125,9 @@ class Schedule extends StatelessWidget {
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: colorScheme[0]![3],
-                          blurRadius: 50,
-                          spreadRadius: -12,
+                          color: colorScheme[pageid]![3],
+                          blurRadius: 40,
+                          spreadRadius: -15,
                         ),
                       ],
                     ),
@@ -126,7 +145,7 @@ class Schedule extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: colorScheme[0]![2],
+                                color: colorScheme[pageid]![2],
                               ),
                             ),
                           ),
@@ -148,7 +167,7 @@ class Schedule extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: colorScheme[0]![1],
+                                  color: colorScheme[pageid]![1],
                                 ),
                               ),
                             ),

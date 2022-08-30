@@ -25,14 +25,14 @@ const schedule = {
     ['DBMS', '10:30 - 12:30', 'Jyoti Anand'],
     ['MANAGEMENT', '10:30 - 12:30', 'K.V.Kuriakose'],
     ['JAVA', '1:30 - 2:30', 'Uma Devi'],
-    ['AIML // SWE LAB', '2:30 - 3:30', 'Rupayan Das/Subrat Gautam'],
-    ['AIML // SWE LAB', '3:30 - 4:30', 'Rupayan Das/Subrat Gautam']
+    ['AIML // SWE LAB', '2:30 - 3:30', 'Rupayan Das'],
+    ['AIML // SWE LAB', '3:30 - 4:30', 'Rupayan Das']
   ],
   4: [
     // THIRSDAY
     ['SOFTWARE ENGINEERING', '9:30 - 10:30', 'Mrinal Kanti Sarkar'],
-    ['AIML // SWE LAB', '10:30 - 11:30', 'Subrat Gautam/Rupayan Das'],
-    ['AIML // SWE LAB', '11:30 - 12:30', 'Subrat Gautam/Rupayan Das'],
+    ['AIML // SWE LAB', '10:30 - 11:30', 'Subrat Gautam'],
+    ['AIML // SWE LAB', '11:30 - 12:30', 'Subrat Gautam'],
     ['ARTIFICIAL INTELLIGENCE', '1:30 - 2:30', 'Rupayan Das'],
     ['JAVA', '2:30 - 3:30', 'Uma Devi'],
     ['ENGLISH', '3:30 - 4:30', 'Mr. Gourab Goswami']
@@ -48,7 +48,7 @@ const schedule = {
   ]
 };
 
-List list2 = [1, 2, 3];
+List list2 = ['Breakfast', 'Lunch', 'Dinner'];
 
 List list3 = [];
 
@@ -76,9 +76,15 @@ const colorScheme = {
     Color.fromARGB(255, 24, 87, 52)
   ],
   0: [
-    Color.fromARGB(255, 213, 124, 243),
-    Color.fromARGB(255, 172, 67, 207),
-    Color.fromARGB(255, 116, 18, 149),
-    Color.fromARGB(255, 69, 27, 83)
+    Color.fromARGB(255, 195, 124, 243),
+    Color.fromARGB(255, 142, 67, 207),
+    Color.fromARGB(255, 99, 18, 149),
+    Color.fromARGB(255, 65, 27, 83)
+  ],
+  4: [
+    Color.fromARGB(255, 235, 106, 142),
+    Color.fromARGB(255, 201, 39, 85),
+    Color.fromARGB(255, 159, 21, 60),
+    Color.fromARGB(255, 112, 18, 45)
   ]
 };

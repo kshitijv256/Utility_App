@@ -17,8 +17,9 @@ class _SplashState extends State<Splash> {
 
   _navigatetoHome() async {
     await Future.delayed(const Duration(seconds: 2), () {});
+    // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Home()));
+        context, MaterialPageRoute(builder: (context) => const Home()));
   }
 
   @override
@@ -28,18 +29,22 @@ class _SplashState extends State<Splash> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color.fromARGB(255, 190, 27, 223),
-              Color.fromARGB(255, 108, 41, 231),
-            ],
-          ),
-        ),
+            image: DecorationImage(
+          image: AssetImage('assets/images/splash.jpg'),
+          fit: BoxFit.cover,
+        )
+            // gradient: LinearGradient(
+            //   begin: Alignment.topCenter,
+            //   end: Alignment.bottomCenter,
+            //   colors: [
+            //     Color.fromARGB(255, 190, 27, 223),
+            //     Color.fromARGB(255, 108, 41, 231),
+            //   ],
+            // ),
+            ),
         child: Container(
           alignment: Alignment.center,
-          child: Text(
+          child: const Text(
             'Utility App',
             style: TextStyle(
               fontSize: 40,
